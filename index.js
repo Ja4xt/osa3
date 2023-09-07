@@ -33,6 +33,34 @@ let notes = [
     important: true
   }
 ]
+
+let persons = [
+  {
+    id: 1,
+    content: "Arto Hellas",
+    number: "040-123456",
+    important: true
+  },
+  {
+    id: 2,
+    content: "Ada Lovelance",
+    number: "39-44-5323523",
+    important: false
+  },
+  {
+    id: 3,
+    content: "Dan Abramov",
+    number: "12-43-234345",
+    important: true
+  },
+  {
+    id: 4,
+    content: "Mary Poppendick",
+    number: "39-23-6423122",
+    important: true
+  }
+]
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
