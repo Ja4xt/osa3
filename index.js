@@ -5,7 +5,7 @@ const Person = require('./models/person')
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 
-morgan.token ('body', function (req, res) { return JSON.stringify(req.body) })
+morgan.token ('body', req => JSON.stringify(req.body))
 
 const errorHandler = (error, request, response, next) => {
   if (error.name === 'CastError' && error.kind === 'ObjectId') {
