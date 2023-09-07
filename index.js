@@ -19,18 +19,6 @@ const errorHandler = (error, request, response, next) => {
   next(error)
 }
 
-const requestLogger = (request, response, next) => {
-  console.log('Method:', request.method)
-  console.log('Path:  ', request.path)
-  console.log('Body:  ', request.body)
-  console.log('---')
-  next()
-}
-app.use(requestLogger)
-const unknownEndpoint = (request, response) => {
-  response.status(404).send({ error: 'unknown endpoint' })
-}
-
 app-use(bodyParser.json())
 app.use(morgan(':method :url :status :res[content-length] - :response-time ms :body'))  
 app.use(express.static('build'))
@@ -38,7 +26,7 @@ app.use(express.static('build'))
 app.get('/api/persons', (request, response) => {
   Person.find({}).then(persons => response.json(persons.map(person => person.toJSON())))
 })
-app.get('/api/persons/:id', (request, response, next) => {
+app.get('/api/persons/:id', (request, response) => {
   person.findById(request.params.id)
   .then(person => response.json(person.toJSON()))
   .catch(error => response.status(404).send({ error: 'person not found' }))
