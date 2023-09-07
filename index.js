@@ -1,9 +1,7 @@
 require('dotenv').config()
 const express = require('express')
 const app = express()
-const http = require('http')
 const Person = require('./models/person')
-app.use(express.json())
 const bodyParser = require('body-parser')
 const morgan = require('morgan')
 
